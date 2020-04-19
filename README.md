@@ -1,2 +1,3 @@
 
-Online Shopping web Application project
+Online Shopping web Application
+By: Nitin C Hegde

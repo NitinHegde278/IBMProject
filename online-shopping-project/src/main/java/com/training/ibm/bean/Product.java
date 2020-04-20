@@ -18,6 +18,17 @@ public class Product {
 	private double productPrice;
 	private Integer unitStock;
 
+	public Product() { }
+	public Product(Integer productId, String productCategory, String productDescription, String productName,
+			double productPrice, Integer unitStock) {
+		this.productId = productId;
+		this.productCategory = productCategory;
+		this.productDescription = productDescription;
+		this.productName = productName;
+		this.productPrice = productPrice;
+		this.unitStock = unitStock;
+	}
+
 	public Integer getProductId() {
 		return productId;
 	}

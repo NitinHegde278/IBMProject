@@ -1,9 +1,12 @@
 package com.training.ibm.bean;
 
+import java.util.Optional;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Cart {
@@ -18,6 +21,21 @@ public class Cart {
 	private double productPrice;
 	private double subTotal;
 	private Integer productQuantity;
+
+	public Cart() { }
+	
+
+	public Cart(Integer cartId, Integer productId, String productCategory, String productName, double productPrice,
+			double subTotal, Integer productQuantity) {
+		this.cartId = cartId;
+		this.productId = productId;
+		this.productCategory = productCategory;
+		this.productName = productName;
+		this.productPrice = productPrice;
+		this.subTotal = subTotal;
+		this.productQuantity = productQuantity;
+	}
+
 
 	public Integer getCartId() {
 		return cartId;

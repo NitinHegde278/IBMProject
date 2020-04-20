@@ -18,6 +18,7 @@ public class Product {
 	private double productPrice;
 	private Integer unitStock;
 	
+	
 	public Integer getProductId() {
 		return productId;
 	}

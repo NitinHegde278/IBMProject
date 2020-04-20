@@ -19,6 +19,7 @@ public class Cart {
 	 private double subTotal;
 	 private Integer productQuantity;
 	 
+	 
 	public Integer getCartId() {
 		return cartId;
 	}

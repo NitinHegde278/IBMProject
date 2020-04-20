@@ -18,6 +18,7 @@ public class Cart {
 	 private double productPrice;
 	 private double subTotal;
 	 private Integer productQuantity;
+	 
 	public Integer getCartId() {
 		return cartId;
 	}

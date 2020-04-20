@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Product {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer productId;
 
 	private String productCategory;

@@ -15,8 +15,8 @@ public class ServiceProduct {
 
 	@Autowired
 	ProductRepository repo;
-	
-	public List<Product> getProductByName(String productName){
+
+	public List<Product> getProductByName(String productName) {
 		return repo.findByProductName(productName);
 	}
 
@@ -26,5 +26,13 @@ public class ServiceProduct {
 
 	public Optional<Product> getProductById(Integer productId) {
 		return repo.findById(productId);
+	}
+
+	public Iterable<Product> getProductByCategory(String productCategory) {
+		return repo.findByProductCategory(productCategory);
+	}
+
+	public Iterable<Product> getProductBySubCategory(String productSubCategory) {
+		return repo.findByProductSubCategory(productSubCategory);
 	}
 }

@@ -23,6 +23,11 @@ public class CartController {
 	
 	@RequestMapping(method = RequestMethod.POST, value="/cart/add")
 	void addToCart(@RequestBody Cart cart) {
+		for(Integer i: service.getIds()) {
+			if(i==cart.getProductId()) {
+				cart.setProductQuantity(service.getQuantity(cart)+1);
+			}
+		}
 		cart.setSubTotal(cart.getProductPrice()*cart.getProductQuantity());
 		service.addtoCart(cart);
 	}
@@ -41,5 +46,10 @@ public class CartController {
 	@RequestMapping(method= RequestMethod.DELETE, value="/cart/{cartId}")
 	void deleteFromCart(@PathVariable Integer cartId) {
 		service.deleteFromCart(cartId);
+	}
+	
+	@RequestMapping("/cart/total")
+	Double getTotalFromCart(){
+		return service.getTotalFromCart();
 	}
 }

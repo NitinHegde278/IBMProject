@@ -2,34 +2,43 @@ package com.training.ibm.bean;
 
 import java.util.Optional;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cart {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer cartId;
-
-	private Integer productId;
+	int productId;
+	
 	private String productCategory;
+	private String productSubCategory;
 	private String productName;
 	private double productPrice;
 	private double subTotal;
-	private Integer productQuantity;
-
-	public Cart() { }
 	
+	//@Column(columnDefinition = "integer default 1",nullable = false)
+	private int productQuantity=1;
 
-	public Cart(Integer cartId, Integer productId, String productCategory, String productName, double productPrice,
-			double subTotal, Integer productQuantity) {
-		this.cartId = cartId;
+	//@ManyToOne
+	//@JoinColumn(name = "product_id")
+	//Product product;
+	
+	public Cart() { }
+
+
+	public Cart(int productId, String productCategory, String productSubCategory, String productName,
+			double productPrice, double subTotal, int productQuantity) {
 		this.productId = productId;
 		this.productCategory = productCategory;
+		this.productSubCategory = productSubCategory;
 		this.productName = productName;
 		this.productPrice = productPrice;
 		this.subTotal = subTotal;
@@ -37,19 +46,29 @@ public class Cart {
 	}
 
 
-	public Integer getCartId() {
+
+
+/*	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public int getCartId() {
 		return cartId;
 	}
 
-	public void setCartId(Integer cartId) {
+	public void setCartId(int cartId) {
 		this.cartId = cartId;
 	}
-
-	public Integer getProductId() {
+*/
+	public int getProductId() {
 		return productId;
 	}
 
-	public void setProductId(Integer productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 
@@ -60,6 +79,17 @@ public class Cart {
 	public void setProductCategory(String productCategory) {
 		this.productCategory = productCategory;
 	}
+	
+
+	public String getProductSubCategory() {
+		return productSubCategory;
+	}
+
+
+	public void setProductSubCategory(String productSubCategory) {
+		this.productSubCategory = productSubCategory;
+	}
+
 
 	public String getProductName() {
 		return productName;
@@ -85,11 +115,11 @@ public class Cart {
 		this.subTotal = subTotal;
 	}
 
-	public Integer getProductQuantity() {
+	public int getProductQuantity() {
 		return productQuantity;
 	}
 
-	public void setProductQuantity(Integer productQuantity) {
+	public void setProductQuantity(int productQuantity) {
 		this.productQuantity = productQuantity;
 	}
 

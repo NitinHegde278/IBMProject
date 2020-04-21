@@ -32,4 +32,14 @@ public class ProductController {
 	Optional<Product> getProductById(@PathVariable Integer productId){
 		return service.getProductById(productId);
 	}
+	
+	@RequestMapping("/products/category/{productCategory}")
+	Iterable<Product> getProductByCategory(@PathVariable String productCategory){
+		return service.getProductByCategory(productCategory);
+	}
+	
+	@RequestMapping("/products/subCategory/{productSubCategory}")
+	Iterable<Product> getProductBySubCategory(@PathVariable String productSubCategory){
+		return service.getProductBySubCategory(productSubCategory);
+	}
 }

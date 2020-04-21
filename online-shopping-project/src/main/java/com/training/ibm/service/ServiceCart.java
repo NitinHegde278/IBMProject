@@ -30,4 +30,16 @@ public class ServiceCart {
 	public void deleteFromCart(Integer cartId) {
 		repo.deleteById(cartId);
 	}
+	
+	public Double getTotalOfCart() {
+		return repo.getSumOfCart();
+	}
+	
+	public List<Integer> getAllIds() {
+		return repo.getAllId();
+	}
+	
+	public Integer getProductQuantity(Cart cart) {
+		return repo.getProductQuantity(cart.getProductId());
+	}
 }

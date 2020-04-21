@@ -27,4 +27,12 @@ public class ServiceProduct {
 	public Optional<Product> getProductById(Integer productId) {
 		return repo.findById(productId);
 	}
+	
+	public Iterable<Product> getProductByCategory(String productCategory){
+		return repo.findByProductCategory(productCategory);
+	}
+	
+	public Iterable<Product> getProductBySubCategory(String productSubCategory){
+		return repo.findByProductSubCategory(productSubCategory);
+	}
 }

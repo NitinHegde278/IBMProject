@@ -13,43 +13,36 @@ public class Cart {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer cartId;
+	private int productId;
 
-	private Integer productId;
 	private String productCategory;
+	private String productSubCategory;
 	private String productName;
 	private double productPrice;
 	private double subTotal;
-	private Integer productQuantity;
-
-	public Cart() { }
 	
+	private int productQuantity=1;
 
-	public Cart(Integer cartId, Integer productId, String productCategory, String productName, double productPrice,
-			double subTotal, Integer productQuantity) {
-		this.cartId = cartId;
+	public Cart() {
+	}
+
+	public Cart(int productId, String productCategory, String productSubCategory, String productName,
+			double productPrice, double subTotal, int productQuantity) {
+		super();
 		this.productId = productId;
 		this.productCategory = productCategory;
+		this.productSubCategory = productSubCategory;
 		this.productName = productName;
 		this.productPrice = productPrice;
 		this.subTotal = subTotal;
 		this.productQuantity = productQuantity;
 	}
 
-
-	public Integer getCartId() {
-		return cartId;
-	}
-
-	public void setCartId(Integer cartId) {
-		this.cartId = cartId;
-	}
-
-	public Integer getProductId() {
+	public int getProductId() {
 		return productId;
 	}
 
-	public void setProductId(Integer productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 
@@ -59,6 +52,14 @@ public class Cart {
 
 	public void setProductCategory(String productCategory) {
 		this.productCategory = productCategory;
+	}
+
+	public String getProductSubCategory() {
+		return productSubCategory;
+	}
+
+	public void setProductSubCategory(String productSubCategory) {
+		this.productSubCategory = productSubCategory;
 	}
 
 	public String getProductName() {
@@ -85,11 +86,11 @@ public class Cart {
 		this.subTotal = subTotal;
 	}
 
-	public Integer getProductQuantity() {
+	public int getProductQuantity() {
 		return productQuantity;
 	}
 
-	public void setProductQuantity(Integer productQuantity) {
+	public void setProductQuantity(int productQuantity) {
 		this.productQuantity = productQuantity;
 	}
 

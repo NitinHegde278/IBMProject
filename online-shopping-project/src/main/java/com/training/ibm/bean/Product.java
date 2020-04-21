@@ -13,7 +13,6 @@ public class Product {
 	Integer productId;
 
 	private String productCategory;
-	private String productSubCategory;
 	private String productDescription;
 	private String productName;
 	private double productPrice;
@@ -46,13 +45,6 @@ public class Product {
 		this.productCategory = productCategory;
 	}
 
-	
-	public String getProductSubCategory() {
-		return productSubCategory;
-	}
-	public void setProductSubCategory(String productSubCategory) {
-		this.productSubCategory = productSubCategory;
-	}
 	public String getProductDescription() {
 		return productDescription;
 	}

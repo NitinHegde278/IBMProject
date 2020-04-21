@@ -11,8 +11,4 @@ import com.training.ibm.bean.Product;
 public interface ProductRepository extends CrudRepository<Product, Integer>{
 
 	List<Product> findByProductName(String productName);
-
-	List<Product> findByProductCategory(String productCategory);
-
-	List<Product> findByProductSubCategory(String productSubCategory);
 }

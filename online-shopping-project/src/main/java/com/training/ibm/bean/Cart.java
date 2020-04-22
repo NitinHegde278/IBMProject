@@ -12,7 +12,6 @@ import javax.persistence.ManyToOne;
 public class Cart {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int productId;
 
 	private String productCategory;

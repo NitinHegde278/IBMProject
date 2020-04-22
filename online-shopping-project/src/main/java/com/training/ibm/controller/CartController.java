@@ -23,8 +23,8 @@ public class CartController {
 	
 	@RequestMapping(method = RequestMethod.POST, value="/cart/add")
 	void addToCart(@RequestBody Cart cart) {
-		for(Integer i : service.getAllIds()) {
-			if(i==cart.getProductId()) {
+		for(Integer id : service.getAllIds()) {
+			if(id==cart.getProductId()) {
 				cart.setProductQuantity(service.getProductQuantity(cart)+1);
 			}
 		}

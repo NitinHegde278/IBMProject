@@ -17,37 +17,44 @@ import com.training.ibm.service.ServiceCart;
 
 @RestController
 public class CartController {
-	
+
 	@Autowired
 	ServiceCart service;
-	
-	@RequestMapping(method = RequestMethod.POST, value="/cart/add")
+
+	@RequestMapping(method = RequestMethod.POST, value = "/cart/add")
 	void addToCart(@RequestBody Cart cart) {
-		for(Integer id : service.getAllIds()) {
-			if(id==cart.getProductId()) {
-				cart.setProductQuantity(service.getProductQuantity(cart)+1);
+		if (!service.getAllProductsInCart().iterator().hasNext()) {
+			cart.setSubTotal(cart.getProductPrice() * cart.getProductQuantity());
+			service.addtoCart(cart);
+		} else {
+			for (Integer id : service.getAllIds()) {
+				if (id == cart.getProductId()) {
+					cart.setProductQuantity(service.getProductQuantity(cart) + 1);
+				} else {
+					cart.setSubTotal(cart.getProductPrice() * cart.getProductQuantity());
+					service.addtoCart(cart);
+				}
 			}
 		}
-		cart.setSubTotal(cart.getProductPrice()*cart.getProductQuantity());
-		service.addtoCart(cart);
+
 	}
-	
+
 	@RequestMapping("/cart")
 	Iterable<Cart> getAllProductsInCart() {
 		return service.getAllProductsInCart();
 	}
-	
-	@RequestMapping(method = RequestMethod.PUT, value="/cart/qty")
+
+	@RequestMapping(method = RequestMethod.PUT, value = "/cart/qty")
 	void updateQuantity(@RequestBody Cart cart) {
-		cart.setSubTotal(cart.getProductPrice()*cart.getProductQuantity());
+		cart.setSubTotal(cart.getProductPrice() * cart.getProductQuantity());
 		service.updateQuantity(cart);
 	}
-	
-	@RequestMapping(method= RequestMethod.DELETE, value="/cart/{cartId}")
+
+	@RequestMapping(method = RequestMethod.DELETE, value = "/cart/{cartId}")
 	void deleteFromCart(@PathVariable Integer cartId) {
 		service.deleteFromCart(cartId);
 	}
-	
+
 	@RequestMapping("/cart/total")
 	Double getTotalOfCart() {
 		return service.getTotalOfCart();

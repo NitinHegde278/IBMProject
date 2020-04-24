@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Cart {
+public class WishList {
 
 	@Id
 	private int productId;
@@ -17,10 +17,10 @@ public class Cart {
 	
 	private int productQuantity=1;
 
-	public Cart() {
+	public WishList() {
 	}
 
-	public Cart(int productId, String productCategory, String productSubCategory, String productName,
+	public WishList(int productId, String productCategory, String productSubCategory, String productName,
 			double productPrice, double subTotal, int productQuantity) {
 		super();
 		this.productId = productId;
@@ -89,3 +89,4 @@ public class Cart {
 	}
 
 }
+

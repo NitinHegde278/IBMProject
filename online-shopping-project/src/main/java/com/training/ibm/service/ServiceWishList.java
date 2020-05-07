@@ -29,4 +29,8 @@ public class ServiceWishList {
 	public List<Integer> getAllIds() {
 		return repo.getAllId();
 	}
+	
+	public Integer getCount() {
+		return repo.getCount();
+	}
 }

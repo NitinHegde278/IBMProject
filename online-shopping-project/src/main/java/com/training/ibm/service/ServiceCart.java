@@ -42,4 +42,8 @@ public class ServiceCart {
 	public Integer getProductQuantity(Cart cart) {
 		return repo.getProductQuantity(cart.getProductId());
 	}
+	
+	public Integer getCount() {
+		return repo.getCount();
+	}
 }

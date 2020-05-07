@@ -13,4 +13,7 @@ public interface WishListRepository extends CrudRepository<WishList, Integer>{
 
 	@Query(value="SELECT product_id from wish_list", nativeQuery = true)
 	List<Integer> getAllId();
+	
+	@Query(value="SELECT count(*) from wish_list", nativeQuery = true)
+	Integer getCount();
 }

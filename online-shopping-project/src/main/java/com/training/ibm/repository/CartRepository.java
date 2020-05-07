@@ -23,4 +23,7 @@ public interface CartRepository extends CrudRepository<Cart, Integer>{
 	@Query(value="SELECT product_quantity from cart where product_id=:id", nativeQuery = true)
 	Integer getProductQuantity(@Param("id") Integer id);
 	
+	@Query(value="SELECT count(*) from cart", nativeQuery = true)
+	Integer getCount();
 }
+

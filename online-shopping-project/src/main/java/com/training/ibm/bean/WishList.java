@@ -15,13 +15,14 @@ public class WishList {
 	private double productPrice;
 	private double subTotal;
 	
+	
 	private int productQuantity=1;
-
+	private String productImage;
 	public WishList() {
 	}
 
 	public WishList(int productId, String productCategory, String productSubCategory, String productName,
-			double productPrice, double subTotal, int productQuantity) {
+			double productPrice, double subTotal, int productQuantity, String productImage) {
 		super();
 		this.productId = productId;
 		this.productCategory = productCategory;
@@ -30,6 +31,7 @@ public class WishList {
 		this.productPrice = productPrice;
 		this.subTotal = subTotal;
 		this.productQuantity = productQuantity;
+		this.productImage = productImage;
 	}
 
 	public int getProductId() {
@@ -87,6 +89,15 @@ public class WishList {
 	public void setProductQuantity(int productQuantity) {
 		this.productQuantity = productQuantity;
 	}
+
+	public String getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(String productImage) {
+		this.productImage = productImage;
+	}
+	
 
 }
 

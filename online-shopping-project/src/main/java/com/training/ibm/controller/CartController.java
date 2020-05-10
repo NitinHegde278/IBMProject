@@ -49,12 +49,7 @@ public class CartController {
 	Iterable<Cart> getAllProductsInCart() {
 		return service.getAllProductsInCart();
 	}
-
-	@RequestMapping(method = RequestMethod.PUT, value = "/cart/qty")
-	void updateQuantity(@RequestBody Cart cart) {
-		cart.setSubTotal(cart.getProductPrice() * cart.getProductQuantity());
-		service.updateQuantity(cart);
-	}
+	
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/cart/{cartId}")
 	void deleteFromCart(@PathVariable Integer cartId) {
@@ -70,4 +65,24 @@ public class CartController {
 	Integer getCount() {
 		return service.getCount();
 	}
+	
+	@RequestMapping(method=RequestMethod.POST, value="/cart/increment")
+	void increment(@RequestBody Cart cart) {
+		cart.setProductQuantity(service.getProductQuantity(cart) + 1);
+		cart.setSubTotal(cart.getProductPrice() * cart.getProductQuantity());
+		service.increment(cart);
+	}
+	
+	@RequestMapping(method=RequestMethod.POST, value="/cart/decrement")
+	void decrement(@RequestBody Cart cart) {
+		cart.setProductQuantity(service.getProductQuantity(cart) - 1);
+		cart.setSubTotal(cart.getProductPrice() * cart.getProductQuantity());
+		service.decrement(cart);
+	}
+	
+	@RequestMapping(method=RequestMethod.DELETE, value="/cart/removeAll")
+	void removeAll() {
+		service.removeAll();
+	}
+	
 }

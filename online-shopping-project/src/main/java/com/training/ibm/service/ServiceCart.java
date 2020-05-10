@@ -46,4 +46,16 @@ public class ServiceCart {
 	public Integer getCount() {
 		return repo.getCount();
 	}
+
+	public void increment(Cart cart) {
+		repo.save(cart);
+	}
+
+	public void decrement(Cart cart) {
+		repo.save(cart);
+	}
+	
+	public void removeAll() {
+		repo.deleteAll();
+	}
 }

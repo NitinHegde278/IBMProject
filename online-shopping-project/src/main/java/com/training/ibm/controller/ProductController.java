@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,7 +23,7 @@ public class ProductController {
 	ServiceProduct service;
 	
 	@RequestMapping("/products/name/{productName}")
-	List<Product> getProductByName(@PathVariable String productName){
+	Iterable<Product> getProductByName(@PathVariable String productName){
 		return service.getProductByName(productName);
 	}
 	
@@ -51,5 +53,10 @@ public class ProductController {
 	@RequestMapping("/products/subCategory/{productSubCategory}")
 	Iterable<Product> getProductBySubCategory(@PathVariable String productSubCategory){
 		return service.getProductBySubCategory(productSubCategory);
+	}
+	
+	@RequestMapping(method=RequestMethod.POST,value="/products")
+	void addProduct(@RequestBody Product product) {
+		service.addProduct(product);
 	}
 }

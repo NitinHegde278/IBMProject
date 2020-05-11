@@ -1,14 +1,18 @@
 package com.training.ibm.bean;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Cart {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int cartId;
+	
 	private int productId;
-
 	private String productCategory;
 	private String productSubCategory;
 	private String productName;
@@ -17,10 +21,13 @@ public class Cart {
 	
 	private int productQuantity=1;
 	private String productImage;
+	private Integer userId;
 	public Cart() {
 	}
-	public Cart(int productId, String productCategory, String productSubCategory, String productName,
-			double productPrice, double subTotal, int productQuantity, String productImage) {
+	public Cart(int cartId, int productId, String productCategory, String productSubCategory, String productName,
+			double productPrice, double subTotal, int productQuantity, String productImage, Integer userId) {
+		super();
+		this.cartId = cartId;
 		this.productId = productId;
 		this.productCategory = productCategory;
 		this.productSubCategory = productSubCategory;
@@ -29,6 +36,13 @@ public class Cart {
 		this.subTotal = subTotal;
 		this.productQuantity = productQuantity;
 		this.productImage = productImage;
+		this.userId = userId;
+	}
+	public int getCartId() {
+		return cartId;
+	}
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
 	}
 	public int getProductId() {
 		return productId;
@@ -78,5 +92,12 @@ public class Cart {
 	public void setProductImage(String productImage) {
 		this.productImage = productImage;
 	}
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	
 
 }

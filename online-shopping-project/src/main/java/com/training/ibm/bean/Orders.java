@@ -12,6 +12,7 @@ public class Orders {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
 	
+	private int userId;
 	private int productId;
 	private String productName;
 	private String productDescription;
@@ -24,10 +25,12 @@ public class Orders {
 	
 	Orders(){ }
 
-	public Orders(int orderId, int productId, String productName, String productDescription, String productCategory,
-			String productSubCategory, double productPrice, int productQuantity, double subTotal, String productImage) {
+	public Orders(int orderId, int userId, int productId, String productName, String productDescription,
+			String productCategory, String productSubCategory, double productPrice, int productQuantity,
+			double subTotal, String productImage) {
 		super();
 		this.orderId = orderId;
+		this.userId = userId;
 		this.productId = productId;
 		this.productName = productName;
 		this.productDescription = productDescription;
@@ -45,6 +48,14 @@ public class Orders {
 
 	public void setOrderId(int orderId) {
 		this.orderId = orderId;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public int getProductId() {
@@ -118,6 +129,6 @@ public class Orders {
 	public void setProductImage(String productImage) {
 		this.productImage = productImage;
 	}
-	
+
 	
 }

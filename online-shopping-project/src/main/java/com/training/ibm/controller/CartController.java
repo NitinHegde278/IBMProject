@@ -25,13 +25,14 @@ public class CartController {
 	@Autowired
 	ServiceCart service;
 
-	@RequestMapping(method = RequestMethod.POST, value = "/cart/add/{productId}")
-	void addToCart(@RequestBody Cart cart, @PathVariable Integer productId) {
-		if (!service.getAllProductsInCart().iterator().hasNext()) {
+	@RequestMapping(method = RequestMethod.POST, value = "/cart/add/{productId}/{userId}")
+	void addToCart(@RequestBody Cart cart, @PathVariable Integer productId, @PathVariable Integer userId) {
+		if (!service.getAllProductsInCart(userId).iterator().hasNext()) {
 			cart.setSubTotal(cart.getProductPrice() * cart.getProductQuantity());
+			cart.setUserId(userId);
 			service.addtoCart(cart);
 		} else{
-			List<Integer> temp = service.getAllIds();
+			List<Integer> temp = service.getAllIds(userId);
 			for (Integer id : temp) {
 				if (productId!=id) {
 					continue;
@@ -40,14 +41,15 @@ public class CartController {
 				break;
 			}
 			cart.setSubTotal(cart.getProductPrice() * cart.getProductQuantity());
+			cart.setUserId(userId);
 			service.addtoCart(cart);
 		}
 
 	}
 
-	@RequestMapping("/cart")
-	Iterable<Cart> getAllProductsInCart() {
-		return service.getAllProductsInCart();
+	@RequestMapping("/cart/{userId}")
+	Iterable<Cart> getAllProductsInCart(@PathVariable Integer userId) {
+		return service.getAllProductsInCart(userId);
 	}
 	
 
@@ -56,14 +58,14 @@ public class CartController {
 		service.deleteFromCart(cartId);
 	}
 
-	@RequestMapping("/cart/total")
-	Double getTotalOfCart() {
-		return service.getTotalOfCart();
+	@RequestMapping("/cart/total/{userId}")
+	Double getTotalOfCart(@PathVariable Integer userId) {
+		return service.getTotalOfCart(userId);
 	}
 	
-	@RequestMapping("/cart/count")
-	Integer getCount() {
-		return service.getCount();
+	@RequestMapping("/cart/count/{userId}")
+	Integer getCount(@PathVariable Integer userId) {
+		return service.getCount(userId);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/cart/increment")
@@ -80,9 +82,9 @@ public class CartController {
 		service.decrement(cart);
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="/cart/removeAll")
-	void removeAll() {
-		service.removeAll();
+	@RequestMapping(method=RequestMethod.DELETE, value="/cart/removeAll/{cartId}")
+	void removeAll(@PathVariable Integer cartId) {
+		service.removeAll(cartId);
 	}
 	
 }

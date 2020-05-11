@@ -18,15 +18,16 @@ public class OrderController {
 	@Autowired
 	ServiceOrder service;
 	
-	@RequestMapping(method=RequestMethod.POST, value="/orders")
-	void addToOrder(@RequestBody Orders order) {
+	@RequestMapping(method=RequestMethod.POST, value="/orders/{userId}")
+	void addToOrder(@RequestBody Orders order, @PathVariable Integer userId) {
 		order.setSubTotal(order.getProductPrice() * order.getProductQuantity());
+		order.setUserId(userId);
 		service.addToOrder(order);
 	}
 	
-	@RequestMapping("/orders") 
-	Iterable<Orders> getOrders(){
-		return service.getOrders();
+	@RequestMapping("/orders/{userId}") 
+	Iterable<Orders> getOrders(@PathVariable Integer userId){
+		return service.getOrders(userId);
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/orders/cancel/{orderId}")

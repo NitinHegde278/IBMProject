@@ -20,14 +20,15 @@ public class WishListController {
 	@Autowired
 	ServiceWishList service;
 
-	@RequestMapping(method = RequestMethod.POST, value = "/wishList/add")
-	void addToWishList(@RequestBody WishList wish) {
+	@RequestMapping(method = RequestMethod.POST, value = "/wishList/add/{userId}")
+	void addToWishList(@RequestBody WishList wish, @PathVariable Integer userId) {
+		wish.setUserId(userId);
 		service.addToWishList(wish);
 	}
 
-	@RequestMapping("/wishList")
-	Iterable<WishList> getAllProducts() {
-		return service.getAllproducts();
+	@RequestMapping("/wishList/{userId}")
+	Iterable<WishList> getAllProducts(@PathVariable Integer userId) {
+		return service.getAllproducts(userId);
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/wishList/{productId}")
@@ -35,8 +36,8 @@ public class WishListController {
 		service.deleteFromWishList(productId);
 	}
 	
-	@RequestMapping("/wishList/count")
-	Integer getCount() {
-		return service.getCount();
+	@RequestMapping("/wishList/count/{userId}")
+	Integer getCount(@PathVariable Integer userId) {
+		return service.getCount(userId);
 	}
 }

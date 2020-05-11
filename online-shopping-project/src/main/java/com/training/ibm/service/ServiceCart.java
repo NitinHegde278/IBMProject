@@ -19,8 +19,8 @@ public class ServiceCart {
 		repo.save(cart);
 	}
 	
-	public Iterable<Cart> getAllProductsInCart() {
-		return repo.findAll();
+	public Iterable<Cart> getAllProductsInCart(Integer userId) {
+		return repo.findByUserId(userId);
 	}
 	
 	public void updateQuantity(Cart cart) {
@@ -31,20 +31,20 @@ public class ServiceCart {
 		repo.deleteById(cartId);
 	}
 	
-	public Double getTotalOfCart() {
-		return repo.getSumOfCart();
+	public Double getTotalOfCart(Integer userId) {
+		return repo.getSumOfCart(userId);
 	}
 	
-	public List<Integer> getAllIds() {
-		return repo.getAllId();
+	public List<Integer> getAllIds(Integer userId) {
+		return repo.getAllId(userId);
 	}
 	
 	public Integer getProductQuantity(Cart cart) {
-		return repo.getProductQuantity(cart.getProductId());
+		return repo.getProductQuantity(cart.getCartId());
 	}
 	
-	public Integer getCount() {
-		return repo.getCount();
+	public Integer getCount(Integer userId) {
+		return repo.getCount(userId);
 	}
 
 	public void increment(Cart cart) {
@@ -55,7 +55,7 @@ public class ServiceCart {
 		repo.save(cart);
 	}
 	
-	public void removeAll() {
-		repo.deleteAll();
+	public void removeAll(Integer cartId) {
+		repo.deleteById(cartId);
 	}
 }

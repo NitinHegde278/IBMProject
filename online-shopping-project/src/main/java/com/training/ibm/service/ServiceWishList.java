@@ -18,8 +18,8 @@ public class ServiceWishList {
 		 repo.save(wish);
 	}
 	
-	public Iterable<WishList> getAllproducts() {
-		return repo.findAll();
+	public Iterable<WishList> getAllproducts(Integer userId) {
+		return repo.findByUserId(userId);
 	}
 	
 	public void deleteFromWishList(Integer productId) {
@@ -30,7 +30,7 @@ public class ServiceWishList {
 		return repo.getAllId();
 	}
 	
-	public Integer getCount() {
-		return repo.getCount();
+	public Integer getCount(Integer userId) {
+		return repo.getCount(userId);
 	}
 }

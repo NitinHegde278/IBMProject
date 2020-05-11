@@ -8,4 +8,6 @@ import com.training.ibm.bean.Orders;
 @Repository
 public interface OrderRepository extends CrudRepository<Orders, Integer>{
 
+	Iterable<Orders> findByUserId(Integer userId);
+
 }

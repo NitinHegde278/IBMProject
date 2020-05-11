@@ -1,29 +1,36 @@
 package com.training.ibm.bean;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class WishList {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int wishListId;
+	
 	private int productId;
-
 	private String productCategory;
 	private String productSubCategory;
 	private String productName;
 	private double productPrice;
 	private double subTotal;
-	
-	
-	private int productQuantity=1;
+
+	private int productQuantity = 1;
 	private String productImage;
+	private Integer userId;
+
 	public WishList() {
 	}
 
-	public WishList(int productId, String productCategory, String productSubCategory, String productName,
-			double productPrice, double subTotal, int productQuantity, String productImage) {
+	public WishList(int wishListId, int productId, String productCategory, String productSubCategory,
+			String productName, double productPrice, double subTotal, int productQuantity, String productImage,
+			Integer userId) {
 		super();
+		this.wishListId = wishListId;
 		this.productId = productId;
 		this.productCategory = productCategory;
 		this.productSubCategory = productSubCategory;
@@ -32,6 +39,15 @@ public class WishList {
 		this.subTotal = subTotal;
 		this.productQuantity = productQuantity;
 		this.productImage = productImage;
+		this.userId = userId;
+	}
+
+	public int getWishListId() {
+		return wishListId;
+	}
+
+	public void setWishListId(int wishListId) {
+		this.wishListId = wishListId;
 	}
 
 	public int getProductId() {
@@ -97,7 +113,15 @@ public class WishList {
 	public void setProductImage(String productImage) {
 		this.productImage = productImage;
 	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
 	
-
+	
 }
-

@@ -16,8 +16,8 @@ public class ServiceOrder {
 		repo.save(order);
 	}
 	
-	public Iterable<Orders> getOrders(){
-		return repo.findAll();
+	public Iterable<Orders> getOrders(Integer userId){
+		return repo.findByUserId(userId);
 	}
 	
 	public void cancelOrder(Integer orderId) {

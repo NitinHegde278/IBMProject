@@ -1,5 +1,6 @@
+<b>RAZOR</b>
 
-Online Shopping web Application
+Online Shopping Application Using Angular and Spring Boot
 
 
 

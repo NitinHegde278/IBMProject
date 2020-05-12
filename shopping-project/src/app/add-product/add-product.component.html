@@ -1,0 +1,65 @@
+<app-admin></app-admin>   
+<form>
+    <div id="add1" class="col-md-4" style="height:1000px">
+   
+<div class="form-group" id="first">
+    <div class="h4">Category</div>
+    <div class="form-control">
+        <label class="radio-inline">
+            <input type="radio" value="Electronics"[(ngModel)]=" productCategory" name="productCategory" >Electronics
+        </label>
+        <label class="radio-inline">
+            <input type="radio" value="Fashion"[(ngModel)]=" productCategory" name="productCategory" >Fashion
+        </label>
+        <label class="radio-inline">
+            <input type="radio" value="Essentials"[(ngModel)]=" productCategory" name="productCategory" >Essentials
+        </label>
+    </div>
+</div>
+<div class="h4">Sub Category</div>
+<div class="form-group" id="second">
+        
+            <input type="radio" value="SmartPhone"[(ngModel)]=" productSubCategory" name="productSubCategory" >SmartPhone
+        
+       
+            <input type="radio" value="Refrigerator"[(ngModel)]=" productSubCategory" name="productSubCategory" >Refrigerator
+       
+            <input type="radio" value="Tv"[(ngModel)]=" productSubCategory" name="productSubCategory" >TV
+        
+            <input type="radio" value="Laptop"[(ngModel)]=" productSubCategory" name="productSubCategory" >Laptop
+        
+            <input type="radio" value="Food"[(ngModel)]=" productSubCategory" name="productSubCategory"> Food
+        
+            <input type="radio" value="Cleaning"[(ngModel)]=" productSubCategory" name="productSubCategory" >Cleaning
+        
+            <input type="radio" value="Hygiene"[(ngModel)]=" productSubCategory" name="productSubCategory" >Hygiene
+
+            <input type="radio" value="T-shirt"[(ngModel)]=" productSubCategory" name="productSubCategory" >T-shirt
+       
+            <input type="radio" value="Jeans"[(ngModel)]=" productSubCategory" name="productSubCategory" >Jeans
+        
+            <input type="radio" value="Shirt"[(ngModel)]=" productSubCategory" name="productSubCategory" >Shirt
+        
+            <input type="radio" value="Trouser"[(ngModel)]=" productSubCategory" name="productSubCategory" >Trouser
+        
+  
+</div>&nbsp;&nbsp;
+<fieldset class="form-group">
+    <input type="text"  class="form-control" [(ngModel)]="productDescription"id="productDescription" name="productDescription" placeholder="product description">
+</fieldset>
+<fieldset class="form-group">
+    <input type="text"  class="form-control" [(ngModel)]="productName"id="productName" name="productName" placeholder="product name">
+</fieldset>
+<fieldset class="form-group">
+    <input type="number"  class="form-control" [(ngModel)]=" productPrice"id="productPrice" name="productPrice" placeholder="product price">
+</fieldset>
+<fieldset class="form-group">
+    <input type="text"  class="form-control" [(ngModel)]=" unitStock"id="unitStock" name="unitStock" placeholder="unit stock">
+</fieldset>
+<fieldset class="form-group">
+    <input type="text"  class="form-control" [(ngModel)]=" productImage"id="productImage" name="productImage" placeholder="productImage">
+</fieldset>
+
+     <button type="submit" class="btn btn-primary btn-block" (click)="addProduct()">Add Product</button>
+</div>
+</form>

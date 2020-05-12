@@ -1,5 +1,6 @@
 # ShoppingProject
-
+RAZOR is a online shopping platform created in Angular.
+By:Nitin C Hegde
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
 
 ## Development server

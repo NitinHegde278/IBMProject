@@ -39,4 +39,12 @@ public class ServiceProduct {
 	public void addProduct(Product product) {
 		repo.save(product);
 	}
+	
+	public void deleteById(int id) {
+		repo.deleteById(id);
+	}
+	
+	public void updateProduct(Product product) {
+		repo.save(product);
+	}
 }

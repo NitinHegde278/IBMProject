@@ -59,4 +59,13 @@ public class ProductController {
 	void addProduct(@RequestBody Product product) {
 		service.addProduct(product);
 	}
+	@RequestMapping(method=RequestMethod.DELETE, value="/products/{id}")
+	void deleteById(@PathVariable int id) {
+		service.deleteById(id);
+	}
+	
+	@RequestMapping(method=RequestMethod.PUT, value="/products/update")
+	void updateProduct(@RequestBody Product product) {
+		service.updateProduct(product);
+	}
 }

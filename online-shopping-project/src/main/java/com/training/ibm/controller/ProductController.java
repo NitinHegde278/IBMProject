@@ -62,7 +62,7 @@ public class ProductController {
 	@RequestMapping(method=RequestMethod.DELETE, value="/products/{id}")
 	void deleteById(@PathVariable int id) {
 		service.deleteById(id);
-	}
+	} 
 	
 	@RequestMapping(method=RequestMethod.PUT, value="/products/update")
 	void updateProduct(@RequestBody Product product) {

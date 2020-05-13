@@ -1,47 +1,59 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ItemDescriptionComponent } from '../item-description/item-description.component';
-import { MainPageComponent } from '../main-page/main-page.component';
+import { HomeComponent } from '../home/home.component';
 import { CartComponent } from '../cart/cart.component';
 import { WishlistComponent } from '../wishlist/wishlist.component';
-import { FrontPageComponent } from '../front-page/front-page.component';
+import {ElectronicsComponent} from '../electronics/electronics.component';
+import {DescriptionComponent} from '../description/description.component';
 import { SearchComponent } from '../search/search.component';
-import { FashionComponent } from '../fashion/fashion.component';
-import { EssentialsComponent } from '../essentials/essentials.component';
-import { OrdersComponent } from '../orders/orders.component';
-import { OtpComponent } from '../otp/otp.component';
 import { LoginComponent } from '../login/login.component';
-import { SignInComponent } from '../sign-in/sign-in.component';
+import { OtpComponent } from '../otp/otp.component';
+import { EssentialsComponent } from '../essentials/essentials.component';
+import { FashionComponent } from '../fashion/fashion.component';
+import {FashionDescriptionComponent} from '../fashion-description/fashion-description.component';
+import {SigninComponent} from '../signin/signin.component';
+import {OrdersComponent} from '../orders/orders.component';
+import { AdminComponent } from '../admin/admin.component';
 import { AddProductComponent } from '../add-product/add-product.component';
 import { GetAllProductsComponent } from '../get-all-products/get-all-products.component';
-import { AdminComponent } from '../admin/admin.component';
+import {PaymentComponent} from '../payment/payment.component';
+import { UpdateProductComponent } from '../update-product/update-product.component';
+import { UsersComponent } from '../users/users.component';
 import { AccountDetailsComponent } from '../account-details/account-details.component';
-import { FaqComponent } from '../faq/faq.component';
+import {FaqComponent} from '../faq/faq.component';
 import { ContactComponent } from '../contact/contact.component';
+import { AboutComponent } from '../about/about.component';
+
 
 
 // We define the route urls for specific components here
 const routes: Routes = [
   // {path: 'urlHere', component: ComponentName}
-  {path: 'front', component:FrontPageComponent},
-  {path: 'electronics', component: MainPageComponent},
-  {path: 'itemDescription/:p1', component: ItemDescriptionComponent},
-  {path: 'cart', component: CartComponent},
-  {path: 'wishlist', component: WishlistComponent},
-  {path: 'search/:p1', component: SearchComponent},
-  {path: 'fashion', component: FashionComponent},
-  {path: 'essentials', component: EssentialsComponent},
-  {path: 'orders', component: OrdersComponent},
-  {path: 'otp', component: OtpComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'signin', component: SignInComponent},
-  {path: 'addproduct', component: AddProductComponent},
-  {path: 'getproduct', component: GetAllProductsComponent},
-  {path: 'admin', component: AdminComponent},
-  {path: 'accountDetails', component: AccountDetailsComponent},
-  {path: 'faq', component: FaqComponent},
-  {path: 'contact', component: ContactComponent},
-  {path:'', redirectTo:'/front', pathMatch:'full'}
+  {path:'login',component:LoginComponent},
+  {path:'otp',component:OtpComponent},
+  {path:'home',component:HomeComponent},
+  {path:'electronics',component:ElectronicsComponent},
+  {path:'itemDescription/:p1',component:DescriptionComponent},
+  {path:'cart',component:CartComponent},
+  {path:'wishlist',component:WishlistComponent},
+  {path:'search/:p1',component:SearchComponent},
+  {path:'essentials',component:EssentialsComponent},
+  {path:'fashion',component:FashionComponent},
+  {path:'fashionDescription/:p1',component:FashionDescriptionComponent},
+  {path:'signin',component:SigninComponent},
+  {path:'orders',component:OrdersComponent},
+  {path:'admin',component:AdminComponent},
+  {path:'addproduct',component:AddProductComponent},
+  {path:'getproduct',component:GetAllProductsComponent},
+  {path:'orders',component:OrdersComponent},
+  {path:'payment/:p1',component:PaymentComponent},
+  {path:'update/:p1',component:UpdateProductComponent},
+  {path:'users',component:UsersComponent},
+  {path:'account',component:AccountDetailsComponent},
+  {path:'faq',component:FaqComponent},
+  {path:'contact',component:ContactComponent},
+  {path:'about',component:AboutComponent},
+  {path:'',redirectTo:'/home',pathMatch:'full'}
 ];
    
 @NgModule({

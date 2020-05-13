@@ -44,7 +44,7 @@ export class FashionComponent implements OnInit {
 
   itemDescription(val){
     console.log(val);
-    this.router.navigate(['/itemDescription',val])
+    this.router.navigate(['/fashionDescription',val]);
   }
 
 }

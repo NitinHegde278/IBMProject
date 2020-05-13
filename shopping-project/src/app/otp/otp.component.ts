@@ -32,6 +32,5 @@ export class OtpComponent implements OnInit {
       }
     }
   );
- 
   }
 }

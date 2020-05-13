@@ -3,53 +3,63 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing/app-routing.module'; 
 
 import { AppComponent } from './app.component';
-import { MainPageComponent } from './main-page/main-page.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { OtpComponent } from './otp/otp.component';
 import { HeadingComponent } from './heading/heading.component';
-import { ItemDescriptionComponent } from './item-description/item-description.component';
-import { TransferService } from './transfer.service';
+import { DescriptionComponent } from './description/description.component';
 import { CartComponent } from './cart/cart.component';
+import { ElectronicsComponent } from './electronics/electronics.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
-import { FrontPageComponent } from './front-page/front-page.component';
 import { SearchComponent } from './search/search.component';
+import {TransferService} from './transfer.service';
 import { FashionComponent } from './fashion/fashion.component';
 import { EssentialsComponent } from './essentials/essentials.component';
-import { FootingComponent } from './footing/footing.component';
-import { OrdersComponent } from './orders/orders.component';
-import { OtpComponent } from './otp/otp.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { LoginComponent } from './login/login.component';
-import { GetAllProductsComponent } from './get-all-products/get-all-products.component';
+import { PaymentComponent } from './payment/payment.component';
+import { FashionDescriptionComponent } from './fashion-description/fashion-description.component';
+import { SigninComponent } from './signin/signin.component';
 import { AdminComponent } from './admin/admin.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { GetAllProductsComponent } from './get-all-products/get-all-products.component';
+import { OrdersComponent } from './orders/orders.component';
+import { FootingComponent } from './footing/footing.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { UsersComponent } from './users/users.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { FaqComponent } from './faq/faq.component';
 import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent,
+    HomeComponent,
+    LoginComponent,
+    OtpComponent,
     HeadingComponent,
-    ItemDescriptionComponent,
+    DescriptionComponent,
     CartComponent,
+    ElectronicsComponent,
     WishlistComponent,
-    FrontPageComponent,
     SearchComponent,
     FashionComponent,
     EssentialsComponent,
-    FootingComponent,
-    OrdersComponent,
-    LoginComponent,
-    OtpComponent,
-    SignInComponent,
+    PaymentComponent,
+    FashionDescriptionComponent,
+    SigninComponent,
+    AdminComponent,
     AddProductComponent,
     GetAllProductsComponent,
-    AdminComponent,
+    OrdersComponent,
+    FootingComponent,
+    UpdateProductComponent,
+    UsersComponent,
     AccountDetailsComponent,
     FaqComponent,
-    ContactComponent
+    ContactComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,6 @@ export class WishlistComponent implements OnInit {
   constructor(private httpRef: HttpClient, private router: Router, private myService: TransferService) { }
 
   ngOnInit(): void {
-  
     let obs = this.httpRef.get("http://localhost:8083/wishList/"+this.myService.userid1());
     obs.subscribe((responseBack) => {
       this.responseBack = responseBack;
@@ -34,7 +33,7 @@ export class WishlistComponent implements OnInit {
 
   itemDescription(val){
     console.log(val);
+    this.myService.val = val;
     this.router.navigate(['/itemDescription',val])
   }
-
 }

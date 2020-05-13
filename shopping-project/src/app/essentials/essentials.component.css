@@ -4,6 +4,7 @@
     text-align: center;
     background-color: white;
     color: steelblue;
+    border: 2px solid steelblue;
     /* background-color: goldenrod; */
 }
 .row{
@@ -38,4 +39,5 @@ img{
 .h1{
     background-color: white;
     color: steelblue;
+    border: 2px solid steelblue;
 }

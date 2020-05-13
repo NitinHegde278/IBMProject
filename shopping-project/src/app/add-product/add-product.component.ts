@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -17,10 +18,10 @@ export class AddProductComponent implements OnInit {
   unitStock:string="";
   productImage:string="";
   responseBack:any;
-  constructor(private httpRef:HttpClient) { }
+  constructor(private httpRef:HttpClient, private router:Router) { }
 
   addProduct(){
-    let obs=this.httpRef.post("http://localhost:8083/products",
+    let obs=this.httpRef.post("http://localhost:8081/products",
     {
       "productCategory":this.productCategory,
       "productSubCategory":this.productSubCategory,
@@ -29,10 +30,12 @@ export class AddProductComponent implements OnInit {
       "productPrice":this.productPrice,
       "unitStock":this.unitStock,
       "productImage":this.productImage
+      
     });
     obs.subscribe((data )=>{
-      
+      this.router.navigate(['/getproduct']);
       console.log("post success");
+      // window.location.reload();
     }
    
   );

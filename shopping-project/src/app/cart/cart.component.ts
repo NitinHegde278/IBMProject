@@ -15,7 +15,6 @@ export class CartComponent implements OnInit {
   
   constructor(private httpRef : HttpClient, private myService : TransferService, private router : Router) { }
   ngOnInit(): void {
-  
     let obs = this.httpRef.get("http://localhost:8083/cart/"+this.myService.userid1());
     obs.subscribe((responseBack) => {
       this.responseBack = responseBack;
@@ -62,17 +61,16 @@ export class CartComponent implements OnInit {
     });
   }
 
-  place(){
+  place(val){
     console.log(this.responseBack);
     for(let item of this.responseBack){
       this.httpRef.post("http://localhost:8083/orders/"+this.myService.userid1(),item).subscribe((response) => {
       console.log("added to orders");
     });
-    this.httpRef.delete("http://localhost:8083/cart/removeAll/"+item.cartId).subscribe((response) => {
+      this.httpRef.delete("http://localhost:8083/cart/removeAll/"+item.cartId).subscribe((response) => {
       console.log("deleted cart");
     });
   }
-  
+  this.router.navigate(['/payment',val]);
   }
-
 }

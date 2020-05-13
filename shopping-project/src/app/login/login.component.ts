@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -9,21 +10,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent{
-  firstName:string="";
-  lastName:string="";
-  phoneNumber:string="";
-  email:string="";
-  password:string="";
-  gender:string="";
-  city:string="";
-  url:string="";
+  firstName;
+  lastName;
+  phoneNumber;
+  email;
+  password;
+  gender;
+  city;
+  url:string;
   responseBack:any;
-  constructor(private httpRef:HttpClient,private router: Router) { }
-
-  ngOnInit(): void {
-  }
+  constructor(private httpRef:HttpClient, private router:Router) { }
  register(){
-    this.httpRef.post("http://localhost:8081/register/users",
+    let obs=this.httpRef.post("http://localhost:8081/register/users",
     {
       "firstName":this.firstName,
       "lastName":this.lastName,
@@ -50,12 +48,12 @@ export class LoginComponent{
   );
  
   }
-
   displayMessage(val){
     console.log(val);
-    
   }
  
  
 }
+
+
 

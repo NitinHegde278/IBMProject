@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ItemDescriptionComponent } from './item-description/item-description.component';
 
 @Injectable({
   providedIn: 'root'

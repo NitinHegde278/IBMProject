@@ -1,10 +1,10 @@
-<app-admin></app-admin>   
-<form>
+<app-admin></app-admin>
+<form class="form">
     <div id="add1" class="col-md-4" style="height:1000px">
-   
-<div class="form-group" id="first">
-    <div class="h4">Category</div>
-    <div class="form-control">
+            
+<div class="form-group">
+    Category
+    <!-- <div class="form-control">
         <label class="radio-inline">
             <input type="radio" value="Electronics"[(ngModel)]=" productCategory" name="productCategory" >Electronics
         </label>
@@ -14,35 +14,32 @@
         <label class="radio-inline">
             <input type="radio" value="Essentials"[(ngModel)]=" productCategory" name="productCategory" >Essentials
         </label>
-    </div>
-</div>
-<div class="h4">Sub Category</div>
-<div class="form-group" id="second">
-        
-            <input type="radio" value="SmartPhone"[(ngModel)]=" productSubCategory" name="productSubCategory" >SmartPhone
-        
-       
-            <input type="radio" value="Refrigerator"[(ngModel)]=" productSubCategory" name="productSubCategory" >Refrigerator
-       
-            <input type="radio" value="Tv"[(ngModel)]=" productSubCategory" name="productSubCategory" >TV
-        
-            <input type="radio" value="Laptop"[(ngModel)]=" productSubCategory" name="productSubCategory" >Laptop
-        
-            <input type="radio" value="Food"[(ngModel)]=" productSubCategory" name="productSubCategory"> Food
-        
-            <input type="radio" value="Cleaning"[(ngModel)]=" productSubCategory" name="productSubCategory" >Cleaning
-        
-            <input type="radio" value="Hygiene"[(ngModel)]=" productSubCategory" name="productSubCategory" >Hygiene
+    </div> -->
+    <select id="productCategory" name="productCategory" [(ngModel)]="productCategory" class="form-control">
+        <option value="Electronics">Electronics</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Essentials">Essentials</option>
+    </select>
+</div>&nbsp;&nbsp;
 
-            <input type="radio" value="T-shirt"[(ngModel)]=" productSubCategory" name="productSubCategory" >T-shirt
-       
-            <input type="radio" value="Jeans"[(ngModel)]=" productSubCategory" name="productSubCategory" >Jeans
-        
-            <input type="radio" value="Shirt"[(ngModel)]=" productSubCategory" name="productSubCategory" >Shirt
-        
-            <input type="radio" value="Trouser"[(ngModel)]=" productSubCategory" name="productSubCategory" >Trouser
-        
-  
+<div class="form-group">
+    Sub Category
+        <label for="productSubCategory">
+            
+        </label>
+        <select id="productSubCategory" name="productSubCategory" [(ngModel)]="productSubCategory" class="form-control">
+            <option value="SmartPhone">smartphone</option>
+            <option value="Refrigerator">refrigerator</option>
+            <option value="TV">tv</option>
+            <option value="Laptop">laptop</option>
+            <option value="Food">food</option>
+            <option value="Cleaning">cleaning</option>
+            <option value="Hygiene">hygiene</option>
+            <option value="T-shirt">t-Shirt</option>
+            <option value="Jeans">jeans</option>
+            <option value="Shirt">shirt</option>
+            <option value="Trouser">trouser</option>
+        </select>
 </div>&nbsp;&nbsp;
 <fieldset class="form-group">
     <input type="text"  class="form-control" [(ngModel)]="productDescription"id="productDescription" name="productDescription" placeholder="product description">
@@ -57,9 +54,10 @@
     <input type="text"  class="form-control" [(ngModel)]=" unitStock"id="unitStock" name="unitStock" placeholder="unit stock">
 </fieldset>
 <fieldset class="form-group">
-    <input type="text"  class="form-control" [(ngModel)]=" productImage"id="productImage" name="productImage" placeholder="productImage">
+    <input type="text"  class="form-control" [(ngModel)]="productImage" id="productImage" name="productImage" placeholder="product image">
 </fieldset>
 
      <button type="submit" class="btn btn-primary btn-block" (click)="addProduct()">Add Product</button>
 </div>
 </form>
+

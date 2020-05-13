@@ -4,26 +4,26 @@
 
 <body>
         <div class="row">
-            <div class="col-md-8 text-center" style=" background-color: cornflowerblue;height: 1300px;">
+            <div class="col-md-8 text-center" style=" background-color: cornflowerblue;height: 1000px;">
                 <div class="logo float-left">
-                    <img src="" class="img-fluid" alt="logo">
+                    <img src="assets/images/razor.png" class="img-fluid" alt="logo" id="img">
             </div>
             <div class="btn-group float-right" role="group">
-                <button type="button" class="btn btn-link text-light">Home</button>
+                <!-- <button type="button" class="btn btn-link text-light">Home</button> -->
                 <button type="button" class="btn btn-link text-light">About</button>
                 <button type="button" class="btn btn-link text-light">Contact</button>
                 </div>
                
-                <blockquote class="display-2 text-light text-center"><strong>Exciting Products , awesome shopping experience</strong></blockquote>
-                <div class="h2 text-center text-light">Online Shopping platform which gives wide varities of products to choose from...</div>
+                <blockquote class="display-2 text-light text-center"><strong>Welcome to Razor</strong></blockquote>
+                <div class="h2 text-center text-light">Exciting deals and a huge variety of products. Enjoy a seamless experience</div>
             </div>
-            <div id="second" class="col-md-4" style="height: 1300px;">
+            <div id="second" class="col-md-4" style="height: 1000px;">
                 <div id="top">
-               <a routerLink="/signin">signin</a>
-                <a routerLink="/admin">Admin</a>
+               <a routerLink="/signin">Sign in as Admin</a>
+                <!-- <a routerLink="/addProduct">Add Product</a> -->
             </div>
                 <div id="signin" class="display-4">SignUp</div>
-                <div class="h5"><a href="#">or register here</a></div><br><br>
+                <div class="h5"><a href="/signin">or Login In</a></div><br><br>
                 <form>
                     <fieldset class="form-group">
                     <input required
@@ -131,7 +131,7 @@
                                         <div *ngIf="pass.errors.minlength"> Min 8 characters</div>
                                       </div> 
                             <fieldset class="form-group">
-                                <input type="text"  class="form-control" [(ngModel)]="gender"id="gender" name="gender" placeholder="Your gender M/F">
+                                <input type="text" class="form-control" [(ngModel)]="gender"id="gender" name="gender" placeholder="Your gender M/F">
                                 </fieldset>
                                 <fieldset class="form-group">
                                     <input required
@@ -162,9 +162,8 @@
                     <button type="submit" *ngIf="!name.valid || !lname.valid || !number.valid || !emailid.valid || !pass.valid || !ncity.valid" class="btn btn-primary btn-block">Submit</button>
                     <button type="submit" *ngIf="(name.valid && lname.valid && number.valid && emailid.valid && pass.valid && ncity.valid)" class="btn btn-primary btn-block" (click)="register()">Submit</button>
                     
-            </form></div>
+            </form>
+            </div>
         </div>
-       
-  
 
 </body>

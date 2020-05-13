@@ -37,13 +37,14 @@
         <div class="to h5">free</div><hr>
         <p class="h5">Total Amount</p>
         <div class="to h5">Rs. {{responseBack1}}</div>
-
-        <button id="order" class="btn btn-primary btn-block" (click)="place()">Place Order</button>
+        <!-- <a href="http://localhost:9090/">
+        <button id="order" class="btn btn-primary btn-block" (click)="place()">Place Order</button></a> -->
+        <button id="order" class="btn btn-primary btn-block" (click)="place(responseBack1)">Place Order</button>
     </div>
 </div>
 
 <div *ngIf="!responseBack.length" class="container" id="empty">
     <div class="display-2">Your Shopping Cart is empty!</div><br>
-    <a href="/front"><div class="btn btn-light">Add products</div></a>
+    <a href="/home"><div class="btn btn-light">Add products</div></a>
 </div>
 <app-footing></app-footing>
